@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="vw_dialog_blue_light">#007AFF</color>
+    <color name="vw_dialog_bg_shadow">#A0FFFFFF</color>
+    <color name="vw_dialog_red">#EC4E4F</color>
+    <color name="vw_dialog_black">#525564</color>
+</resources>

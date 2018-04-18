@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.vincent.blurdialog.blur.RoundRectBlurView
+        android:id="@+id/bv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ll_content"
+        android:layout_alignLeft="@+id/ll_content"
+        android:layout_alignRight="@+id/ll_content"
+        android:layout_alignTop="@+id/ll_content"
+        app:realtimeBlurRadius="32dp"
+        app:realtimeDownsampleFactor="4"
+        app:realtimeOverlayColor="#B4ECECEC"
+        app:xRadius="@dimen/vw_dialog_default_radius"
+        app:yRadius="@dimen/vw_dialog_default_radius" />
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/vw_dialog_tv_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/vw_dialog_black"
+            android:textSize="16sp"
+            tools:text="Please enter your finger print" />
+
+        <FrameLayout
+            android:id="@+id/vw_dialog_fl_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

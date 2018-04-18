@@ -1,0 +1,12 @@
+<resources>
+    <!-- For dialog Animation -->
+    <style name="vw_dialog_anim_center">
+        <item name="android:windowEnterAnimation">@anim/vw_dialog_scale_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="vw_dialog_anim_bottom">
+        <item name="android:windowEnterAnimation">@anim/vw_dialog_slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/vw_dialog_slide_out_bottom</item>
+    </style>
+</resources>
