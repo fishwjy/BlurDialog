@@ -1,5 +1,8 @@
 # BlurDialog
 A blur dialog in Android which is high-imitation of iOS.
+
+[![Download](https://api.bintray.com/packages/vincentwoo/maven/BlurDialog/images/download.svg) ](https://bintray.com/vincentwoo/maven/BlurDialog/_latestVersion)
+
 <div  align="center">    
   <img src="https://github.com/fishwjy/BlurDialog/raw/master/art/confirm.png" 
        width = "270" height = "480" alt="确认对话框" align=center />
@@ -23,7 +26,7 @@ A blur dialog in Android which is high-imitation of iOS.
 
 ## Step
 ### 1.Import to your project
-    compile 'com.vincent.filepicker:MultiTypeFilePicker:latestVersion'
+    compile 'com.vincent.blurdialog:BlurDialog:1.0.0'
     
 ### 2.Add Render Script API to your project
 ```gradle
