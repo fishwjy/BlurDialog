@@ -54,7 +54,10 @@ public class BlurDialog {
     private float curProgress = 0;
     private ObjectAnimator mProgressAnimator;
 
-    private BlurDialog(Builder builder) {
+    public BlurDialog() {
+    }
+
+    public BlurDialog(Builder builder) {
         this.builder = builder;
     }
 
@@ -378,6 +381,7 @@ public class BlurDialog {
     }
 
     public static class Builder {
+        private Context ctx;
         private boolean isCancelable;
         private boolean isOutsideCancelable;
         private int type = TYPE_DOUBLE_OPTION;
@@ -473,9 +477,20 @@ public class BlurDialog {
         }
 
         public BlurDialog build(Context ctx) {
+            this.ctx = ctx;
             BlurDialog helper = new BlurDialog(this);
             return helper.createDialog(ctx);
         }
+
+        public Builder createBuilder(Context ctx) {
+            this.ctx = ctx;
+            return this;
+        }
+    }
+
+    public void setBuilder(Builder builder) {
+        this.builder = builder;
+        createDialog(builder.ctx);
     }
 
     public interface OnProgressFinishedListener {

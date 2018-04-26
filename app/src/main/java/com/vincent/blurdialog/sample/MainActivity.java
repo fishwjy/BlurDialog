@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.def_confirm:
-                dialog = new BlurDialog.Builder()
+                final BlurDialog dlg = new BlurDialog();
+                BlurDialog.Builder builder = new BlurDialog.Builder()
                         .isCancelable(true)
                         .isOutsideCancelable(true)
                         .message("Messi is the best football player")
@@ -56,24 +57,26 @@ public class MainActivity extends AppCompatActivity {
                         .positiveClick(new OnPositiveClick() {
                             @Override
                             public void onClick() {
+                                dlg.dismiss();
                                 Toast.makeText(MainActivity.this, "Yes, definitely!", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .negativeClick(new OnNegativeClick() {
                             @Override
                             public void onClick() {
+                                dlg.dismiss();
                                 Toast.makeText(MainActivity.this, "No, CR7 is the best!", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .dismissListener(new DialogInterface.OnDismissListener() {
                             @Override
                             public void onDismiss(DialogInterface dialog) {
-                                Toast.makeText(MainActivity.this, "I have no idea about it!", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .type(BlurDialog.TYPE_DOUBLE_OPTION)
-                        .build(MainActivity.this);
-                dialog.show();
+                        .createBuilder(MainActivity.this);
+                dlg.setBuilder(builder);
+                dlg.show();
                 break;
             case R.id.def_single:
                 dialog = new BlurDialog.Builder()

@@ -26,7 +26,7 @@ A blur dialog in Android which is high-imitation of iOS.
 
 ## Step
 ### 1.Import to your project
-    compile 'com.vincent.blurdialog:BlurDialog:1.0.0'
+    compile 'com.vincent.blurdialog:BlurDialog:1.0.1'
     
 ### 2.Add Render Script API to your project
 ```gradle

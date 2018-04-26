@@ -1,7 +1,7 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-def prjVersion = "1.0.0"
+def prjVersion = "1.0.1"
 def prjGroup = "com.vincent.blurdialog"
 def prjName = "BlurDialog"
 def prjArtifactId = "BlurDialog"
