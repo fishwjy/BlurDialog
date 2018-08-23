@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.SweepGradient;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -26,6 +27,7 @@ public class IndeterminateProgressView extends View {
     private int mCenterX, mCenterY;
     private float mStrokeWidth = 2;
     private Paint mProgressPaint;
+    private RotateAnimation mRotate;
 
     public IndeterminateProgressView(Context context) {
         this(context, null);
@@ -57,16 +59,17 @@ public class IndeterminateProgressView extends View {
         mProgressPaint.setStyle(Paint.Style.STROKE);
         mProgressPaint.setStrokeCap(Paint.Cap.ROUND);
 
+        mRotate = new RotateAnimation(0f, 360f,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        mRotate.setInterpolator(new LinearInterpolator());
+        mRotate.setDuration(1500);//设置动画持续时间
+        mRotate.setRepeatCount(-1);//设置重复次数
+//                rotate.setFillAfter(true);//动画执行完后是否停留在执行完的状态
+
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                RotateAnimation rotate = new RotateAnimation(0f, 360f,
-                        Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-                rotate.setInterpolator(new LinearInterpolator());
-                rotate.setDuration(1500);//设置动画持续时间
-                rotate.setRepeatCount(-1);//设置重复次数
-//                rotate.setFillAfter(true);//动画执行完后是否停留在执行完的状态
-                IndeterminateProgressView.this.startAnimation(rotate);
+                startAnimation();
             }
         });
     }
@@ -93,5 +96,24 @@ public class IndeterminateProgressView extends View {
 
     public void setStrokeWidth(float px) {
         this.mStrokeWidth = px;
+    }
+
+    public void startAnimation() {
+        if (mRotate != null) {
+            IndeterminateProgressView.this.startAnimation(mRotate);
+        }
+    }
+
+    @Override
+    protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
+        if (View.VISIBLE == visibility) {
+            startAnimation();
+        }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        mRotate.reset();
+        super.onDetachedFromWindow();
     }
 }
